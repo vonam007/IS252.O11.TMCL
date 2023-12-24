@@ -23,6 +23,10 @@ body{
     align-items: center;
     justify-content: center;
 }
+.header img{
+    display: block;
+    cursor: pointer;
+}
 .selectTab-contain {
     display: flex;
     justify-content: center;

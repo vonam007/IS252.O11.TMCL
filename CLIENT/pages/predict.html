@@ -11,7 +11,7 @@
 
 <body>
     <div class="header">
-        <img src="../src/logo.png" alt="">
+        <img src="../src/logo.png" alt="" onclick="toHome()">
     </div>
     <div class="selectTab-contain">
         <div class="selectTab">
@@ -30,32 +30,32 @@
                     <div class="row">
                         <div class="col-half">
                             <label for="Memory">Memory</label>
-                            <input name="Memory" id="Memory" type="text" >
+                            <input name="Memory" id="Memory" type="text" required placeholder="8">
 
                         </div>
                         <div class="col-half">
                             <label for="Storage">Storage</label>
-                            <input name="Storage" id="Storage" type="text">
+                            <input name="Storage" id="Storage" type="text" required placeholder="512">
 
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-half">
                             <label for="ppi">Screen ppi</label>
-                            <input name="ppi" id="ppi" type="text">
+                            <input name="ppi" id="ppi" type="text" required placeholder="120">
 
                         </div>
                         <div class="col-half">
                             <label for="screen">Screen Size</label>
-                            <input name="screen" id="screen" type="text">
+                            <input name="screen" id="screen" type="text" required placeholder="15.6">
 
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-third">
                             <label for="CPU">CPU Series</label>
-                            <select name="CPU" id="CPU">
-                                <option checked>Choose CPU</option>
+                            <select name="CPU" id="CPU" required>
+                                <option value="" disabled selected hidden>Choose CPU</option>
                                 <option value="Intel Core i7">Intel Core i7</option>
                                 <option value="Intel Core i3">Intel Core i3</option>
                                 <option value="AMD Ryzen 7">AMD Ryzen 7</option>
@@ -71,8 +71,8 @@
                         </div>
                         <div class="col-third">
                             <label for="GPU">GPU Brand</label>
-                            <select name="GPU" id="GPU">
-                                <option checked>Choose GPU Brand</option>
+                            <select name="GPU" id="GPU" required>
+                                <option value="" disabled selected hidden>Choose GPU Brand</option>
                                 <option value="Intel">Intel</option>
                                 <option value="AMD">AMD</option>
                                 <option value="NVIDIA">NVIDIA</option>
@@ -82,9 +82,9 @@
                         </div>
                         <div class="col-third">
                             <label for="Graphic">Graphic Type</label>
-                            <select name="Graphic" id="Graphic">
+                            <select name="Graphic" id="Graphic" required>
                                 
-                                <option checked>Choose Graphic-card type</option>
+                                <option value="" disabled selected hidden>Choose Graphic-card type</option>
                                 <option value="Integrated">Integrated</option>
                                 <option value="Dedicated">Dedicated</option>
                             </select>
@@ -94,8 +94,8 @@
                     <div class="row">
                         <div class="col-half">
                             <label for="Brand">Brand</label>
-                            <select name="Brand" id="Brand">
-                                <option checked>Choose Brand</option>
+                            <select name="Brand" id="Brand" required>
+                                <option value="" disabled selected hidden>Choose Brand</option>
                                 <option value="msi">msi</option>
                                 <option value="dell">dell</option>
                                 <option value="lenovo">lenovo</option>
@@ -124,9 +124,9 @@
 
                         <div class="col-half">
                             <label for="OS">Operation System</label>
-                            <select name="OS" id="OS">
+                            <select name="OS" id="OS" required>
                                 
-                                <option checked>Choose OS</option>
+                                <option value="" disabled selected hidden>Choose OS</option>
                                 <option value="Windows 11 Home">Windows 11 Home</option>
                                 <option value="Windows 11 Pro">Windows 11 Pro</option>
                                 <option value="Windows 11 in S mode">Windows 11 in S mode</option>
@@ -142,40 +142,46 @@
                     </div>
 
                     <div class="row col-radio">
-                        
                         <label for="backlit">Has Backlit Keyboard?</label>
                         <div class="radio">
-                            <input type="radio" class="yes" name="backlit"><span>YES</span>
-                            <input type="radio" class="no" name="backlit"><span>NO</span>
+                            <input type="radio" class="yes" name="backlit" value="1" required><span>YES</span>
+                            <input type="radio" class="no" name="backlit" value="0" required><span>NO</span>
                         </div>
                         
                         <label for="tbgate">Has ThunderBolt Gate?</label>
                         <div class="radio">
-                            <input type="radio" class="yes" name="tbgate"><span>YES</span>
-                            <input type="radio" class="no" name="tbgate"><span>NO</span>
+                            <input type="radio" class="yes" name="tbgate" value="1" required><span>YES</span>
+                            <input type="radio" class="no" name="tbgate" value="0" required><span>NO</span>
                         </div>
                     </div>
 
                 </div>
                 <div class="btn-contain">
-                    <button class="predict-Btn" id="predict-Btn">PRICE</button>
+                    <button type="submit" class="predict-Btn" id="predict-Btn">PRICE</button>
                 </div>
             </form>
         </div>
         <div class="right">
             <div class="title">price</div>
             <div class="price">
-                <div class="price-value" id="price-value">$0000.00</div>
+                <div class="price-value" id="price-value">$<span id="price-value-change">0000.00</span></div>
                 <div class="predict-label">(PREDICT)</div>
             </div>
             <div class="similar">
                 <div class="title">similar products</div>
-                <div class="similar-items">
+                <div class="similar-items" id="similar-items">
 
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        function toHome() {
+            window.location.href = "predict.html";
+        }
+    </script>
+    <script src="../js/main.js"></script>
+    <script src="../js/predict.js"></script>
 </body>
 
 </html> 

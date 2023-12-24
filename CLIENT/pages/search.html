@@ -7,11 +7,12 @@
     <title>IS252</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/search.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 
 <body>
     <div class="header">
-        <img src="../src/logo.png" alt="">
+        <img src="../src/logo.png" alt="" onclick="toHome()">
     </div>
     <div class="selectTab-contain">
         <div class="selectTab">
@@ -19,6 +20,24 @@
             <a href="search.html" class="active">SEARCHING</a>
         </div>
     </div>
+    <div class="section">
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="text here">
+            <ul id="suggestions"></ul>
+        </div>
+        <button id="searchBtn">search</button>
+
+        <div id="product-contain">
+        </div>
+    </div>
+
+    <script>
+        function toHome() {
+            window.location.href = "predict.html";
+        }
+    </script>
+    <script src="../js/main.js"></script>
+    <script src="../js/search.js"></script>
 </body>
 
 </html>

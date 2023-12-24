@@ -1,0 +1,130 @@
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 200px 200px 200px;
+    min-height: 70vh;
+}
+.search-container {
+    position: relative;
+    margin: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--secondary-color);
+}
+
+#searchInput {
+    width: 900px;
+    height: 72px;
+    border: none;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+#searchInput:focus {
+    outline: none;
+}
+
+#suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: none;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+#suggestions li {
+    padding: 8px;
+    cursor: pointer;
+}
+
+#suggestions li:hover {
+    background-color: #f1f1f1;
+}
+
+#searchBtn {
+    display: block;
+    width: 200px;
+    height: 50px;
+    font-size: 24px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--secondary-color);
+    color: #fff;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    
+    margin-bottom: 60px;
+}
+#searchBtn:hover {
+    background-color: var(--primary-color);
+    transition: all 0.2s ease-in-out;
+}
+.product-contain{
+    display: flex;
+    box-shadow:  #ccc 0px 0px 10px 0px;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+.product-img {
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    background-color: #ccc;
+    margin-right: 20px;
+}
+.product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.product-info {
+    max-width: 700px;
+    text-wrap: wrap;
+}
+.product-info h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+.product-info p {
+    font-size: 16px;
+}
+.product-info .prices {
+    color: var(--tertiary-color);
+    font-size: 72px;
+    font-weight: 900;
+    line-height: 72px;
+    margin-bottom: 20px;
+}
+.product-info a {
+    position: absolute;
+    display: block;
+    width: 150px;
+    height: 48px;
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 48px;
+    text-align: center;
+    background-color: var(--tertiary-color);
+    color: #fff;
+    border-radius: 10px;
+    transform: translate(540px, -60px);
+    text-transform: uppercase;
+    box-shadow: #ccc 0px 0px 10px 0px;
+    cursor: pointer;
+    user-select: none;
+
+}
+.product-info a:hover {
+    transform: translate(540px, -65px);
+    transition: all 0.2s ease-in-out;
+}
