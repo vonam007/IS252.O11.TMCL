@@ -1,0 +1,53 @@
+:root{
+    --primary-color: #161853;
+    --secondary-color: #292c6d;
+    --tertiary-color: #ec255a;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+body{
+    font-family: 'open sans', sans-serif;
+    color: var(--primary-color);
+}
+
+.header{
+    background-color: var(--primary-color);
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.selectTab-contain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+.selectTab-contain .selectTab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    font-size: 26px;
+    font-weight: 900;
+}
+.selectTab-contain .selectTab a {
+    color: var(--primary-color);
+    display: inline-block;
+    width: 250px;
+    text-align: center;
+    line-height: 72px;
+}
+.selectTab-contain .selectTab .active {
+    color: var(--tertiary-color);
+    border-bottom: 2px solid var(--tertiary-color);
+    transform: translate(0px, 1px);
+}

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IS252</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/predict.css">
+</head>
+
+<body>
+    <div class="header">
+        <img src="../src/logo.png" alt="">
+    </div>
+    <div class="selectTab-contain">
+        <div class="selectTab">
+            <a href="predict.html" class="active">PRICE ESTIMATE</a>
+            <a href="search.html">SEARCHING</a>
+        </div>
+    </div>
+
+    <div class="predict-contain">
+        <div class="left">
+            <div class="title">
+                product information
+            </div>
+            <form>
+                <div class="information">
+                    <div class="row">
+                        <div class="col-half">
+                            <label for="Memory">Memory</label>
+                            <input name="Memory" id="Memory" type="text" >
+
+                        </div>
+                        <div class="col-half">
+                            <label for="Storage">Storage</label>
+                            <input name="Storage" id="Storage" type="text">
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-half">
+                            <label for="ppi">Screen ppi</label>
+                            <input name="ppi" id="ppi" type="text">
+
+                        </div>
+                        <div class="col-half">
+                            <label for="screen">Screen Size</label>
+                            <input name="screen" id="screen" type="text">
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-third">
+                            <label for="CPU">CPU Series</label>
+                            <select name="CPU" id="CPU">
+                                <option checked>Choose CPU</option>
+                                <option value="Intel Core i7">Intel Core i7</option>
+                                <option value="Intel Core i3">Intel Core i3</option>
+                                <option value="AMD Ryzen 7">AMD Ryzen 7</option>
+                                <option value="Intel Core i9">Intel Core i9</option>
+                                <option value="Intel Core i5">Intel Core i5</option>
+                                <option value="AMD Ryzen 9">AMD Ryzen 9</option>
+                                <option value="Intel Other CPU">Intel Other CPU</option>
+                                <option value="AMD Ryzen 5">AMD Ryzen 5</option>
+                                <option value="AMD Ryzen 3">AMD Ryzen 3</option>
+                                <option value="AMD Other CPU">AMD Other CPU</option>
+                                <option value="Other CPU">Other CPU</option>
+                            </select>
+                        </div>
+                        <div class="col-third">
+                            <label for="GPU">GPU Brand</label>
+                            <select name="GPU" id="GPU">
+                                <option checked>Choose GPU Brand</option>
+                                <option value="Intel">Intel</option>
+                                <option value="AMD">AMD</option>
+                                <option value="NVIDIA">NVIDIA</option>
+                                <option value="No">No</option>
+                                <option value="Other GPU">Other GPU</option>
+                            </select>
+                        </div>
+                        <div class="col-third">
+                            <label for="Graphic">Graphic Type</label>
+                            <select name="Graphic" id="Graphic">
+                                
+                                <option checked>Choose Graphic-card type</option>
+                                <option value="Integrated">Integrated</option>
+                                <option value="Dedicated">Dedicated</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-half">
+                            <label for="Brand">Brand</label>
+                            <select name="Brand" id="Brand">
+                                <option checked>Choose Brand</option>
+                                <option value="msi">msi</option>
+                                <option value="dell">dell</option>
+                                <option value="lenovo">lenovo</option>
+                                <option value="gigabyte">gigabyte</option>
+                                <option value="asus">asus</option>
+                                <option value="acer">acer</option>
+                                <option value="hasee">hasee</option>
+                                <option value="hp">hp</option>
+                                <option value="aorus">aorus</option>
+                                <option value="apple">apple</option>
+                                <option value="microsoft">microsoft</option>
+                                <option value="corsair">corsair</option>
+                                <option value="razer">razer</option>
+                                <option value="lg">lg</option>
+                                <option value="dynabook">dynabook</option>
+                                <option value="chuwi">chuwi</option>
+                                <option value="samsung">samsung</option>
+                                <option value="toshiba">toshiba</option>
+                                <option value="colorful">colorful</option>
+                                <option value="mobile precision">mobile precision</option>
+                                <option value="helix">helix</option>
+                                <option value="ctl">ctl</option>
+                                <option value="qualcomm">qualcomm</option>
+                            </select>
+                        </div>
+
+                        <div class="col-half">
+                            <label for="OS">Operation System</label>
+                            <select name="OS" id="OS">
+                                
+                                <option checked>Choose OS</option>
+                                <option value="Windows 11 Home">Windows 11 Home</option>
+                                <option value="Windows 11 Pro">Windows 11 Pro</option>
+                                <option value="Windows 11 in S mode">Windows 11 in S mode</option>
+                                <option value="Windows 10 Pro">Windows 10 Pro</option>
+                                <option value="Windows 10 Home">Windows 10 Home</option>
+                                <option value="Chrome OS">Chrome OS</option>
+                                <option value="macOS">macOS</option>
+                                <option value="Windows 10 in S mode">Windows 10 in S mode</option>
+                                <option value="No OS">No OS</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="row col-radio">
+                        
+                        <label for="backlit">Has Backlit Keyboard?</label>
+                        <div class="radio">
+                            <input type="radio" class="yes" name="backlit"><span>YES</span>
+                            <input type="radio" class="no" name="backlit"><span>NO</span>
+                        </div>
+                        
+                        <label for="tbgate">Has ThunderBolt Gate?</label>
+                        <div class="radio">
+                            <input type="radio" class="yes" name="tbgate"><span>YES</span>
+                            <input type="radio" class="no" name="tbgate"><span>NO</span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="btn-contain">
+                    <button class="predict-Btn" id="predict-Btn">PRICE</button>
+                </div>
+            </form>
+        </div>
+        <div class="right">
+            <div class="title">price</div>
+            <div class="price">
+                <div class="price-value" id="price-value">$0000.00</div>
+                <div class="predict-label">(PREDICT)</div>
+            </div>
+            <div class="similar">
+                <div class="title">similar products</div>
+                <div class="similar-items">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html> 
