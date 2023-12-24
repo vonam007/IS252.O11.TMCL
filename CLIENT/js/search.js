@@ -91,7 +91,7 @@ script.onload = function () {
             let content = `
                 <div class="product-contain" id="product-contain">
                     <div class="product-img">
-                        <img src="${imglink}" alt="">
+                        <img src="${imglink}" alt="An Image about a laptop" id="laptopImg">
                     </div>
                     <div class="product-info">
                         <h3>${title}</h3>
@@ -104,8 +104,22 @@ script.onload = function () {
                         <a href="${link}" target="_blank">Buy Now</a>
                     </div>
             `
+            
             // Thêm element vào trang web
             contentContain.innerHTML = content;
+            let myImage = document.getElementById('laptopImg');
+
+            myImage.onload = function() {
+              console.log('Image loaded successfully');
+            };
+        
+            myImage.onerror = function() {
+              console.log('Error loading image');
+              // Thực hiện các thao tác khi có lỗi load hình ảnh
+              // Thay đổi src thành một hình ảnh khác
+              myImage.src = "https://c1.neweggimages.com/ProductImageCompressAll1280/" + sublink.slice(0, 2) + "-" + sublink.slice(2, 5) + "-" + sublink.slice(5) + "-18.jpg";
+            };
+            
         }
 
         
