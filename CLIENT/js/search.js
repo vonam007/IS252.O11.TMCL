@@ -69,6 +69,7 @@ script.onload = function () {
                         let selectedOs = osArray[selectedItemIndex];
 
                         addItem(selectedTitle, selectedPrice, selectedLink, selectedCpu, selectedMemory, selectedStorage, selectedScreenSize, selectedResolution, selectedGpu, selectedOs);
+                        find4similar(selectedPrice, dataArray)
                     } else {
                         // Xử lý khi không tìm thấy item
                         console.log("Item not found");
@@ -82,10 +83,9 @@ script.onload = function () {
             // lấy ảnh từ nguồn
             //sendDataToAPI(link);
             sublink = link.substr(-8);
-            var imglink = "https://c1.neweggimages.com/ProductImageCompressAll1280/" + sublink.slice(0, 2) + "-" + sublink.slice(2, 5) + "-" + sublink.slice(5) + "-01.jpg";
+            let imglink = "https://c1.neweggimages.com/ProductImageCompressAll1280/" + sublink.slice(0, 2) + "-" + sublink.slice(2, 5) + "-" + sublink.slice(5) + "-01.jpg";
 
             // In ra kết quả
-            console.log(imglink);
             let contentContain = document.getElementById("product-contain");
             // Tạo element mới
             let content = `
@@ -103,26 +103,80 @@ script.onload = function () {
                         <p>OS: ${os}</p>
                         <a href="${link}" target="_blank">Buy Now</a>
                     </div>
+                </div>
             `
-            
+
             // Thêm element vào trang web
             contentContain.innerHTML = content;
             let myImage = document.getElementById('laptopImg');
 
-            myImage.onload = function() {
-              console.log('Image loaded successfully');
+            myImage.onload = function () {
+                console.log('Image loaded successfully');
             };
-        
-            myImage.onerror = function() {
-              console.log('Error loading image');
-              // Thực hiện các thao tác khi có lỗi load hình ảnh
-              // Thay đổi src thành một hình ảnh khác
-              myImage.src = "https://c1.neweggimages.com/ProductImageCompressAll1280/" + sublink.slice(0, 2) + "-" + sublink.slice(2, 5) + "-" + sublink.slice(5) + "-18.jpg";
+
+            myImage.onerror = function () {
+                console.log('Error loading image');
+                // Thực hiện các thao tác khi có lỗi load hình ảnh
+                // Thay đổi src thành một hình ảnh khác
+                myImage.src = "https://c1.neweggimages.com/ProductImageCompressAll1280/" + sublink.slice(0, 2) + "-" + sublink.slice(2, 5) + "-" + sublink.slice(5) + "-18.jpg";
             };
-            
+        }
+        // Hàm thêm item vào trang web
+        function addSimilarItem(title, price, link) {
+
+            // In ra kết quả
+            let contentContain = document.getElementById("similar-product-contain");
+            // Tạo element mới
+            title = title.substr(0, 50) + "...";
+            let content = `
+                <div class="product-more-info">
+                    <h3>${title}</h3>
+                    <p class="prices">$${price}</p>
+                    <a href="${link}" target="_blank">Click to see more</a>
+                </div>
+            `
+
+            // Thêm element vào trang web
+            contentContain.innerHTML += content;
         }
 
-        
+        function find4similar(selectedPrice, dataArray) {
+
+            // Mảng chứa dữ liệu từ cột 'title'
+            const titlesArray = dataArray.map(row => (row[16] ? row[16].slice(1, -1) : ""));
+            const priceArray = dataArray.map(row => row[1]);
+            const linkArray = dataArray.map(row => row[17]);
+
+            let maxItems = 4;  // Số lượng item tối đa bạn muốn lấy
+
+            let similarItems = [];
+            let count = 0;
+
+            for (let i = 0; i < titlesArray.length && count < maxItems; i++) {
+                let currentPrice = priceArray[i];
+
+                if (currentPrice >= 0.8 * selectedPrice && currentPrice <= 1.2 * selectedPrice) {
+                    let itemInfo = {
+                        title: titlesArray[i],
+                        price: currentPrice,
+                        link: linkArray[i],
+                    };
+
+                    similarItems.push(itemInfo);
+                    count++;
+                }
+            }
+            document.getElementById("similar-contain").innerHTML = `
+            <div class="title">SIMILAR-PRICE PRODUCTS</div>
+            <div id="similar-product-contain">
+            </div>
+            `;
+            for (let i = 0; i < similarItems.length; i++) {
+                let item = similarItems[i];
+                addSimilarItem(item.title, item.price, item.link);
+            }
+        }
+
 
         // Hiển thị gợi ý
         function displaySuggestions(suggestions) {
