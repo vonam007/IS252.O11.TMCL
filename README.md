@@ -8,3 +8,13 @@ Done by
 LE HOANG THOAI - 20521976
 
 VO NGUYEN HOAI NAM - 20520645
+
+### Client:
+Start live server in VSCode
+
+### Server:
+```bash
+cd SERVER
+venv\Scripts\activate
+python app.py
+```
