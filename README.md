@@ -16,6 +16,8 @@ Start live server in VSCode
 ```bash
 cd SERVER
 
+python -m venv venv
+
 venv\Scripts\activate
 
 pip install -r requirements.txt
